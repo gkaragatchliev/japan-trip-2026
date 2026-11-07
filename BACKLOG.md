@@ -32,5 +32,6 @@ Open work, highest value first. Tick items off as they land.
 - [ ] Drive legs if any are by car; otherwise consider a train leg type
 
 ## Deployment
-- [ ] Create the GitHub repo and turn on GitHub Pages
+- [x] GitHub repo created and pushed: `gkaragatchliev/japan-trip-2026`
+- [x] GitHub Pages on (`https://gkaragatchliev.github.io/japan-trip-2026/`)
 - [ ] Set `email` in `js/config.js` if it should not be the personal address

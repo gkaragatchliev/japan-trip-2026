@@ -51,5 +51,7 @@ leg needs `id`, `date`, `day`, `title`, `notes`, `thingsToSee`. All text has
 
 ## Deploy
 
-Commit + push to `main`. GitHub Pages publishes automatically (~1 min).
-Use cache-busting query strings (`?v=N`) when changing CSS or JS.
+Repo: `gkaragatchliev/japan-trip-2026`, live at
+`https://gkaragatchliev.github.io/japan-trip-2026/`. Commit + push to `main`;
+GitHub Pages publishes automatically (~1 min). Use cache-busting query strings
+(`?v=N`) when changing CSS or JS.
