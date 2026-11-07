@@ -17,6 +17,5 @@
   <circle cx="450" cy="212" r="74" fill="none" stroke="#ffffff" stroke-width="6"/>
 
   <text x="450" y="360" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" fill="#0b3d3a">Japan</text>
-  <text x="450" y="404" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#5b7470">Map placeholder - coming soon</text>
   <text x="450" y="452" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#7d938f" letter-spacing="3">NOV 25 - DEC 13, 2026</text>
 </svg>
