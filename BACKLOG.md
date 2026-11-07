@@ -9,7 +9,7 @@ Open work, highest value first. Tick items off as they land.
       (Dec 6 event currently reads "time to be confirmed")
 - [ ] Transport to and from Hakone on Dec 2 and Dec 4 (no drive/train block)
 - [ ] Accommodation on `arrive-tokyo` (currently `TBD`)
-- [ ] Things to see on legs other than Hakone (Hakone has 4, the rest are empty)
+- [ ] Things to see on legs other than Hakone (Hakone has 7, the rest are empty)
 - [ ] Pull quotes on the legs that deserve them
 - [ ] `busyDays` entries for anything that must not be offered on the form
 - Open on purpose: Nov 28, Dec 4, Dec 5, and all of Dec 8 - Dec 12

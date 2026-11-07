@@ -104,7 +104,7 @@ Japanese uses a 24-hour clock for flights.
 57 tests covering:
 - Itinerary renders all legs, flight numbers, day badges
 - Per-day content for Nov 27, Nov 29, Nov 30, Dec 1, Dec 6, and the
-  Dec 2 - Dec 3 Hakone stay (Senkyoro link, 4 sights with map links)
+  Dec 2 - Dec 3 Hakone stay (Senkyoro link, 7 sights with map links)
 - Language toggle switches timeline, hero, static UI, month headings
 - Japanese 24-hour flight times
 - TBD accommodation badge

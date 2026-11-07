@@ -151,6 +151,18 @@ var TRIP = {
         {
           name: { en: "Pola Museum of Art", ja: "ポーラ美術館" },
           info: { en: "Art museum in the forest near Sengokuhara, with a cafe.", ja: "仙石原近くの森の中の美術館。カフェあり。" }
+        },
+        {
+          name: { en: "Hakone Open-Air Museum", ja: "箱根彫刻の森美術館" },
+          info: { en: "Sculpture park opened in 1970, with a Picasso pavilion.", ja: "1970年開館の野外美術館。ピカソ館あり。" }
+        },
+        {
+          name: { en: "Hakone Shrine", ja: "箱根神社" },
+          info: { en: "Shrine on the Lake Ashi shore, known for its vermilion torii.", ja: "芦ノ湖のほとりの神社。朱色の鳥居で知られる。" }
+        },
+        {
+          name: { en: "Choan-ji", ja: "長安寺" },
+          info: { en: "Zen temple founded in 1658 in the Sengokuhara highlands.", ja: "仙石原にある禅寺。1658年創建。" }
         }
       ]
     },

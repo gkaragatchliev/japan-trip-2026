@@ -840,7 +840,12 @@ test("Hakone leg books Senkyoro for Dec 2-3 with nearby sights", () => {
   const things = card.querySelector(".tc-things");
   assert.ok(things, "things to see rendered");
   const items = things.querySelectorAll(".tc-things-list li");
-  assert.ok(items.length >= 4, "at least 4 sights listed");
+  const names = Array.from(items).map((li) => li.querySelector("strong").textContent);
+  assert.strictEqual(items.length, 7, "all 7 sights listed");
+  ["Sengokuhara Susuki Grass Field", "Owakudani", "Lake Ashi", "Pola Museum of Art",
+    "Hakone Open-Air Museum", "Hakone Shrine", "Choan-ji"].forEach((n) => {
+    assert.ok(names.includes(n), `${n} kept in the list`);
+  });
   items.forEach((li) => {
     const map = li.querySelector("a.tc-map");
     assert.ok(map, "sight has a map link");

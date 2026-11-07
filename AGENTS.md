@@ -85,7 +85,7 @@ update `--loc-*` colors in `css/style.css`, deploy.
   dinner Koshigaya + possible onsen), Nov 29 samba 11:00 AM - 3:00 PM,
   Nov 30 Harue at the cancer center (George free), Dec 1 samba 8:00 PM -
   10:00 PM + Harue dinner with friends (day left free), Dec 2 - Dec 3 Hakone
-  onsen with mom and dad at Senkyoro (`https://senkyoro.co.jp/`, 4 nearby
+  onsen with mom and dad at Senkyoro (`https://senkyoro.co.jp/`, 7 nearby
   sights), Dec 6 George samba + Harue with the Oregon team at Pedro's house
   in Jiyugaoka, George returns Dec 7 (AS124 + AS488), Harue returns Dec 13
   (same flights). Nov 28, Dec 4, Dec 5 and Dec 8 - Dec 12 intentionally open.
