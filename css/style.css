@@ -552,14 +552,6 @@ a:hover { color: var(--amber-700); text-decoration: underline; }
   border-radius: 12px;
   box-shadow: var(--shadow);
 }
-.map-caption {
-  font-size: 0.72rem;
-  color: var(--muted);
-  margin: 6px 0 0;
-}
-.map-caption a {
-  color: var(--teal-600);
-}
 
 /* ---------- Card hover polish ---------- */
 .timeline-card {

@@ -65,10 +65,6 @@
     },
     submit: { en: "Propose via Email", ja: "メールで提案" },
     selectDay: { en: "Select a day...", ja: "日付を選択..." },
-    mapCaption: {
-      en: "Map placeholder -- to be replaced with a Japan map.",
-      ja: "地図（準備中） -- 日本地図に差し替え予定。"
-    },
     footer: { en: "George & Harue \u00B7 Japan Trip 2026", ja: "George & Harue \u00B7 日本旅行 2026" }
   };
 

@@ -551,6 +551,12 @@ test("map figure points at a committed local placeholder asset", () => {
   assert.ok(img, "map image present");
   assert.ok(img.getAttribute("src").indexOf("images/japan-map.svg") !== -1, "points at local map");
   assert.ok(fs.existsSync(path.join(ROOT, "images", "japan-map.svg")), "map asset committed");
+  assert.strictEqual(figure.querySelector(".map-caption"), null, "no caption under the flag");
+  assert.ok(w.document.body.textContent.indexOf("Map placeholder") === -1,
+    "no placeholder wording left on the page");
+  const svg = fs.readFileSync(path.join(ROOT, "images", "japan-map.svg"), "utf8");
+  assert.ok(svg.indexOf("Map placeholder") === -1, "flag art has no placeholder line");
+  assert.ok(svg.indexOf(">Japan<") !== -1, "Japan label kept in the flag art");
 });
 
 test("hero shows the travelers line", () => {
