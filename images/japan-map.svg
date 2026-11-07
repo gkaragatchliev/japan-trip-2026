@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" role="img" aria-label="Map of Japan placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f9f7"/>
+      <stop offset="100%" stop-color="#e6f1ee"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#d6e4e1" stroke-width="1" stroke-dasharray="4 6"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="520" fill="url(#bg)"/>
+  <rect width="900" height="520" fill="url(#grid)"/>
+  <rect x="12" y="12" width="876" height="496" fill="none" stroke="#c3d8d3" stroke-width="2"/>
+
+  <circle cx="450" cy="212" r="74" fill="#bc002d"/>
+  <circle cx="450" cy="212" r="74" fill="none" stroke="#ffffff" stroke-width="6"/>
+
+  <text x="450" y="360" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" fill="#0b3d3a">Japan</text>
+  <text x="450" y="404" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#5b7470">Map placeholder - coming soon</text>
+  <text x="450" y="452" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#7d938f" letter-spacing="3">NOV 25 - DEC 13, 2026</text>
+</svg>
