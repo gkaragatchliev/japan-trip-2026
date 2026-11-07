@@ -40,6 +40,8 @@ update `--loc-*` colors in `css/style.css`, deploy.
 - Tests: `npm test`
 - Local: `python -m http.server 8000` then `http://localhost:8000`
 - Deploy: commit + `git push origin main`; GitHub Pages publishes (~1 min).
+  Repo: `gkaragatchliev/japan-trip-2026`, live at
+  `https://gkaragatchliev.github.io/japan-trip-2026/`.
 
 ## Learned lessons (DO NOT repeat these mistakes)
 
