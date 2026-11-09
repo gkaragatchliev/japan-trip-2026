@@ -275,10 +275,10 @@ a:hover { color: var(--amber-700); text-decoration: underline; }
   white-space: nowrap;
 }
 .tc-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-  margin-right: 1px;
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.35em;
+  margin-right: 2px;
 }
 .tc-map:hover, .tc-site:hover { text-decoration: underline; }
 .tc-accommodation.is-tbd {
