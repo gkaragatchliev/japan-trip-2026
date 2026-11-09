@@ -28,7 +28,10 @@ update `--loc-*` colors in `css/style.css`, deploy.
   `id`, `date`, `day`, `title`, `flight` or `flights`, `drive`,
   `accommodation`, `event` (with `website`/`mapQuery`), `meals[]`
   (`label`, `name`, `website`, `mapQuery`), `notes`, `thingsToSee`,
-  `pullquote`.
+  `pullquote`. Optional `icon` (`"snake"` = rod of Asclepius, `"bowl"`,
+  `"house"`) on accommodation/event/meals puts an inline SVG on that entity's
+  primary link (website if present, else map); icons live in `ICONS` in
+  `js/app.js`.
 - `js/app.js` -- all logic in one IIFE: date engine (`parseDate`, `tripDays`,
   `dayNumberFor`, `buildDayMap`), timeline rendering, two-month calendar
   rendering, language toggle, activity form, `STR` (code labels) and

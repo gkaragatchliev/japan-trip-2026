@@ -42,8 +42,13 @@ var TRIP = {
       title: { en: "Arrive in Tokyo", ja: "東京に到着" },
       flight: null,
       accommodation: {
-        name: "TBD",
-        details: { en: "Accommodation still to be booked.", ja: "宿泊先はまだ未定です。" }
+        name: "AirBnB Ryogoku",
+        mapQuery: "東京都墨田区両国2丁目3-10",
+        icon: "house",
+        details: {
+          en: "AirBnB in the Ryogoku area, 2-chome-3-10. Exact address still to be confirmed.",
+          ja: "両国エリアのAirBnB、2-chome-3-10。正確な住所は未定です。"
+        }
       },
       notes: {
         en: "Land at Narita (NRT) at 3:25 PM. Nov 27 to Dec 6 is still open -- fill in as plans firm up.",
@@ -62,7 +67,8 @@ var TRIP = {
         en: "10:30 AM - Skin doctor appointment at Kinshicho Karugamo Dermatology Clinic.",
         ja: "10:30 - 錦糸町かるがも皮膚科で診察。",
         website: "https://karugamo-hifuka.com/",
-        mapQuery: "錦糸町かるがも皮膚科, 東京都墨田区"
+        mapQuery: "錦糸町かるがも皮膚科, 東京都墨田区",
+        icon: "snake"
       },
       accommodation: null,
       meals: [
@@ -73,7 +79,8 @@ var TRIP = {
             ja: "真鯛らーめん 麺魚 錦糸町パルコ店"
           },
           website: "https://www.mengyo.net/",
-          mapQuery: "真鯛らーめん 麺魚 錦糸町パルコ店, 東京都墨田区"
+          mapQuery: "真鯛らーめん 麺魚 錦糸町パルコ店, 東京都墨田区",
+          icon: "bowl"
         }
       ],
       notes: {

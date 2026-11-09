@@ -279,11 +279,38 @@ test("Harue's Dec 13 card repeats the same flight times", () => {
   assert.strictEqual(times(card), times(george), "identical flight blocks");
 });
 
-test("arrival leg shows a TBD accommodation badge without a map link", () => {
+test("arrival leg shows the Ryogoku AirBnB with a map link", () => {
   const w = fresh().window;
   const card = cardFor(w, "Nov 26");
   assert.ok(card, "Nov 26 card rendered");
   const acc = card.querySelector(".tc-accommodation");
+  assert.ok(acc, "accommodation section rendered");
+  assert.ok(!acc.classList.contains("is-tbd"), "no TBD styling");
+  assert.ok(acc.textContent.includes("AirBnB Ryogoku"), "stay named");
+  assert.ok(acc.textContent.includes("2-chome-3-10"), "partial address shown");
+  const map = acc.querySelector("a.tc-map");
+  assert.ok(map, "map link rendered");
+  assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "points at Google Maps");
+  assert.ok(decodeURIComponent(map.getAttribute("href")).indexOf("両国") !== -1,
+    "map query names Ryogoku");
+  const icon = map.querySelector("svg.tc-icon");
+  assert.ok(icon, "house icon on the AirBnB map link");
+  assert.strictEqual(icon.getAttribute("aria-hidden"), "true", "icon hidden from AT");
+  assert.strictEqual(map.textContent.trim(), "map", "link keeps its text label");
+
+  w.__trip.setLang("ja");
+  const jaAcc = cardFor(w, "Nov 26").querySelector(".tc-accommodation");
+  assert.ok(jaAcc.textContent.includes("両国"), "JA details name Ryogoku");
+});
+
+test("a TBD accommodation renders a badge without a map link", () => {
+  const w = fresh().window;
+  w.__trip.TRIP.legs[1].accommodation = {
+    name: "TBD",
+    details: { en: "Still open.", ja: "未定。" }
+  };
+  w.__trip.renderAll();
+  const acc = cardFor(w, "Nov 26").querySelector(".tc-accommodation");
   assert.ok(acc, "accommodation section rendered");
   assert.ok(acc.classList.contains("is-tbd"), "TBD styling applied");
   assert.ok(acc.textContent.includes("TBD"), "TBD shown");
@@ -338,9 +365,13 @@ test("Nov 27 clinic event links to its website and Google map", () => {
   assert.ok(site, "website link rendered");
   assert.strictEqual(site.getAttribute("href"), "https://karugamo-hifuka.com/",
     "links at the clinic site");
+  assert.ok(site.querySelector("svg.tc-icon"), "snake icon on the clinic link");
+  assert.strictEqual(site.textContent, "website", "link keeps its text label");
   const map = event.querySelector("a.tc-map");
   assert.ok(map, "map link rendered");
   assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
+  assert.strictEqual(map.querySelector("svg.tc-icon"), null,
+    "icon only on the primary link, not repeated on the map");
   assert.ok(decodeURIComponent(map.getAttribute("href")).indexOf("かるがも") !== -1,
     "map query names the clinic");
 
@@ -359,6 +390,7 @@ test("Nov 27 lunch renders a meal block with website and map", () => {
   const site = meal.querySelector("a.tc-site");
   assert.ok(site, "website link rendered");
   assert.ok(site.getAttribute("href").indexOf("mengyo.net") !== -1, "links at mengyo.net");
+  assert.ok(site.querySelector("svg.tc-icon"), "bowl icon on the lunch link");
   const map = meal.querySelector("a.tc-map");
   assert.ok(map, "map link rendered");
   assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
@@ -884,6 +916,8 @@ test("Hakone leg books Senkyoro for Dec 2-3 with nearby sights", () => {
   assert.ok(site, "website link rendered");
   assert.strictEqual(site.getAttribute("href"), "https://senkyoro.co.jp/", "points at the official site");
   assert.ok(site.textContent.includes("Senkyoro"), "ryokan named in the link");
+  assert.strictEqual(acc.querySelector("svg.tc-icon"), null,
+    "no icon when the leg has no icon field");
 
   const things = card.querySelector(".tc-things");
   assert.ok(things, "things to see rendered");

@@ -274,6 +274,12 @@ a:hover { color: var(--amber-700); text-decoration: underline; }
   color: var(--teal-600);
   white-space: nowrap;
 }
+.tc-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  margin-right: 1px;
+}
 .tc-map:hover, .tc-site:hover { text-decoration: underline; }
 .tc-accommodation.is-tbd {
   background: var(--warn-bg);

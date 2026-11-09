@@ -143,6 +143,30 @@
     return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
   }
 
+  var ICONS = {
+    snake:
+      '<svg class="tc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path d="M12 4V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>' +
+      '<path d="M12 19.2c-3.3-.9-3.3-3.5 0-4.4s3.3-3.5 0-4.4-3.3-3.5 0-4.4c1.4-.4 2.3-1.1 2.9-2.1" ' +
+      'fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>' +
+      '<circle cx="15.6" cy="3.2" r="1.5" fill="currentColor"/>' +
+      '<path d="M17.1 2.8h2M19.1 2.8l-1.1-.9M19.1 2.8l-1.1.9" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.1" stroke-linecap="round"/></svg>',
+    bowl:
+      '<svg class="tc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path d="M3 10.5h18c0 5.5-4 9.5-9 9.5s-9-4-9-9.5Z" fill="currentColor"/>' +
+      '<path d="M8.5 8c0-2 2-2 2-4M13.5 8c0-2 2-2 2-4" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.6" stroke-linecap="round"/></svg>',
+    house:
+      '<svg class="tc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path fill="currentColor" fill-rule="evenodd" ' +
+      'd="M12 2.5 21 10.5h-2.5v10h-13v-10H3L12 2.5Zm-2 12h4v6h-4z"/></svg>'
+  };
+
+  function iconSvg(name) {
+    return name && ICONS[name] ? ICONS[name] : "";
+  }
+
   function renderOverview() {
     var el = $("#overview");
     if (!el) return;
@@ -191,10 +215,12 @@
 
     if (leg.accommodation) {
       var isTbd = /tbd/i.test(leg.accommodation.name);
+      var accIcon = iconSvg(leg.accommodation.icon);
+      var accHasSite = !!leg.accommodation.website && !isTbd;
       html += '<div class="tc-section tc-accommodation' + (isTbd ? " is-tbd" : "") + '">';
       html += '<span class="tc-label">' + escapeHtml(t(STR.stay)) + '</span>';
-      if (leg.accommodation.website && !isTbd) {
-        html += '<strong><a class="tc-site" href="' + escapeHtml(leg.accommodation.website) + '" target="_blank" rel="noopener">' + escapeHtml(leg.accommodation.name) + '</a></strong>';
+      if (accHasSite) {
+        html += '<strong><a class="tc-site" href="' + escapeHtml(leg.accommodation.website) + '" target="_blank" rel="noopener">' + accIcon + escapeHtml(leg.accommodation.name) + '</a></strong>';
       } else {
         html += '<strong>' + escapeHtml(leg.accommodation.name) + '</strong>';
       }
@@ -202,39 +228,43 @@
         html += '<span class="tc-detail"> ' + escapeHtml(t(leg.accommodation.details)) + '</span>';
       }
       if (!isTbd) {
-        var q = leg.accommodation.name + (leg.location ? ", " + t(leg.location) : "");
-        html += ' <a class="tc-map" href="' + mapsLink(q) + '" target="_blank" rel="noopener">' + escapeHtml(t(STR.map)) + '</a>';
+        var q = leg.accommodation.mapQuery ||
+          leg.accommodation.name + (leg.location ? ", " + t(leg.location) : "");
+        html += ' <a class="tc-map" href="' + mapsLink(q) + '" target="_blank" rel="noopener">' +
+          (accHasSite ? "" : accIcon) + escapeHtml(t(STR.map)) + '</a>';
       }
       html += '</div>';
     }
 
     if (leg.event) {
+      var evIcon = iconSvg(leg.event.icon);
       html += '<div class="tc-section tc-event">';
       html += '<span class="tc-label">' + escapeHtml(t(STR.event)) + '</span>';
       html += '<span class="tc-event-detail">' + escapeHtml(t(leg.event)) + '</span>';
       if (leg.event.website) {
         html += ' <a class="tc-site" href="' + escapeHtml(leg.event.website) + '" target="_blank" rel="noopener">' +
-          escapeHtml(t(STR.website)) + '</a>';
+          evIcon + escapeHtml(t(STR.website)) + '</a>';
       }
       if (leg.event.mapQuery) {
         html += ' <a class="tc-map" href="' + mapsLink(leg.event.mapQuery) + '" target="_blank" rel="noopener">' +
-          escapeHtml(t(STR.map)) + '</a>';
+          (leg.event.website ? "" : evIcon) + escapeHtml(t(STR.map)) + '</a>';
       }
       html += '</div>';
     }
 
     if (leg.meals) {
       leg.meals.forEach(function (meal) {
+        var mealIcon = iconSvg(meal.icon);
         html += '<div class="tc-section tc-meal">';
         html += '<span class="tc-label">' + escapeHtml(t(meal.label)) + '</span>';
         html += '<span class="tc-meal-detail">' + escapeHtml(t(meal.name)) + '</span>';
         if (meal.website) {
           html += ' <a class="tc-site" href="' + escapeHtml(meal.website) + '" target="_blank" rel="noopener">' +
-            escapeHtml(t(STR.website)) + '</a>';
+            mealIcon + escapeHtml(t(STR.website)) + '</a>';
         }
         if (meal.mapQuery) {
           html += ' <a class="tc-map" href="' + mapsLink(meal.mapQuery) + '" target="_blank" rel="noopener">' +
-            escapeHtml(t(STR.map)) + '</a>';
+            (meal.website ? "" : mealIcon) + escapeHtml(t(STR.map)) + '</a>';
         }
         html += '</div>';
       });
