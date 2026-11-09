@@ -26,13 +26,15 @@ update `--loc-*` colors in `css/style.css`, deploy.
   travelers, email, country, `year`, `range { start, end }`, primary color.
 - `js/data.js` -- `TRIP` object with `legs[]` and `busyDays[]`. Each leg has
   `id`, `date`, `day`, `title`, `flight` or `flights`, `drive`,
-  `accommodation`, `notes`, `thingsToSee`, `pullquote`.
+  `accommodation`, `event` (with `website`/`mapQuery`), `meals[]`
+  (`label`, `name`, `website`, `mapQuery`), `notes`, `thingsToSee`,
+  `pullquote`.
 - `js/app.js` -- all logic in one IIFE: date engine (`parseDate`, `tripDays`,
   `dayNumberFor`, `buildDayMap`), timeline rendering, two-month calendar
   rendering, language toggle, activity form, `STR` (code labels) and
   `STATIC_TEXT` (`data-i18n` labels), Splitting.js init, scroll-reveal,
   progress bar, G/H particles, XSS escaping.
-- `tests/site.test.js` -- `node --test` + jsdom, **57 tests, all green**.
+- `tests/site.test.js` -- `node --test` + jsdom, **59 tests, all green**.
 - `package.json` -- script `npm test`, devDependency `jsdom`.
 
 ## Commands
@@ -81,8 +83,10 @@ update `--loc-*` colors in `css/style.css`, deploy.
 ## Current state
 
 - 10 legs: depart PDX Nov 25 (AS2408 + AS123), arrive Tokyo Nov 26 (TBD
-  accommodation), skin doctor at Kinshicho Nov 27 (10:30, lunch Tai Ramen,
-  dinner Koshigaya + possible onsen), Nov 29 samba 11:00 AM - 3:00 PM,
+  accommodation), skin doctor at Kinshicho Karugamo Dermatology Nov 27 (10:30,
+  `https://karugamo-hifuka.com/`, lunch Madai Ramen Mengyo at Kinshicho PARCO
+  `https://www.mengyo.net/` as a `meals[]` entry, dinner Koshigaya + possible
+  onsen), Nov 29 samba 11:00 AM - 3:00 PM,
   Nov 30 Harue at the cancer center (George free), Dec 1 samba 8:00 PM -
   10:00 PM + Harue dinner with friends (day left free), Dec 2 - Dec 3 Hakone
   onsen with mom and dad at Senkyoro (`https://senkyoro.co.jp/`, 7 nearby
@@ -97,5 +101,5 @@ update `--loc-*` colors in `css/style.css`, deploy.
 - Map is a placeholder SVG (`images/japan-map.svg`).
 - Location accent colors: tokyo, kyoto, osaka, transit (template) + hakone.
 - All UI bilingual EN/JA with the toggle in the top-right corner.
-- 57 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
+- 59 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
   fails tests 51, 53, 56; breaking `hasConcrete` or `labelDate` fails 44/47).

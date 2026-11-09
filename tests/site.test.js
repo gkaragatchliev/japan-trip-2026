@@ -303,7 +303,7 @@ test("day badges count from Nov 25 as Day 1", () => {
   assert.strictEqual(badge("Dec 13"), "Day 19");
 });
 
-test("Nov 27 card carries the Kinshicho appointment, lunch, and dinner plans", () => {
+test("Nov 27 card carries the Kinshicho appointment and dinner plans", () => {
   const w = fresh().window;
   const card = cardFor(w, "Nov 27");
   assert.ok(card, "Nov 27 card rendered");
@@ -319,7 +319,6 @@ test("Nov 27 card carries the Kinshicho appointment, lunch, and dinner plans", (
   assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
 
   const notes = card.querySelector(".tc-notes").textContent;
-  assert.ok(notes.includes("Tai Ramen"), "lunch shown");
   assert.ok(notes.includes("Koshigaya"), "dinner shown");
   assert.ok(notes.includes("onsen"), "onsen kept as an option");
 
@@ -329,6 +328,49 @@ test("Nov 27 card carries the Kinshicho appointment, lunch, and dinner plans", (
     "JA appointment names Kinshicho");
   assert.ok(jaCard.querySelector(".tc-notes").textContent.includes("越谷"),
     "JA notes name Koshigaya");
+});
+
+test("Nov 27 clinic event links to its website and Google map", () => {
+  const w = fresh().window;
+  const event = cardFor(w, "Nov 27").querySelector(".tc-event");
+  assert.ok(event.textContent.includes("Karugamo"), "clinic named in EN");
+  const site = event.querySelector("a.tc-site");
+  assert.ok(site, "website link rendered");
+  assert.strictEqual(site.getAttribute("href"), "https://karugamo-hifuka.com/",
+    "links at the clinic site");
+  const map = event.querySelector("a.tc-map");
+  assert.ok(map, "map link rendered");
+  assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
+  assert.ok(decodeURIComponent(map.getAttribute("href")).indexOf("かるがも") !== -1,
+    "map query names the clinic");
+
+  w.__trip.setLang("ja");
+  const jaEvent = cardFor(w, "Nov 27").querySelector(".tc-event");
+  assert.ok(jaEvent.textContent.includes("かるがも"), "JA appointment names the clinic");
+});
+
+test("Nov 27 lunch renders a meal block with website and map", () => {
+  const w = fresh().window;
+  const card = cardFor(w, "Nov 27");
+  const meal = card.querySelector(".tc-meal");
+  assert.ok(meal, "meal section rendered");
+  assert.strictEqual(meal.querySelector(".tc-label").textContent, "Lunch", "EN label");
+  assert.ok(meal.textContent.includes("Madai Ramen Mengyo Kinshicho Parco"), "EN name shown");
+  const site = meal.querySelector("a.tc-site");
+  assert.ok(site, "website link rendered");
+  assert.ok(site.getAttribute("href").indexOf("mengyo.net") !== -1, "links at mengyo.net");
+  const map = meal.querySelector("a.tc-map");
+  assert.ok(map, "map link rendered");
+  assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
+  assert.ok(decodeURIComponent(map.getAttribute("href")).indexOf("麺魚") !== -1,
+    "map query names the shop");
+  assert.ok(card.querySelector(".tc-notes").textContent.indexOf("Tai Ramen") === -1,
+    "old lunch removed from notes");
+
+  w.__trip.setLang("ja");
+  const jaMeal = cardFor(w, "Nov 27").querySelector(".tc-meal");
+  assert.strictEqual(jaMeal.querySelector(".tc-label").textContent, "昼食", "JA label");
+  assert.ok(jaMeal.textContent.includes("麺魚"), "JA name shown");
 });
 
 test("thingsToSee renders an expandable list with map links", () => {

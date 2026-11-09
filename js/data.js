@@ -59,14 +59,26 @@ var TRIP = {
       title: { en: "Skin doctor at Kinshicho, dinner in Koshigaya", ja: "錦糸町で皮膚科、越谷で夕食" },
       flight: null,
       event: {
-        en: "10:30 AM - Skin doctor appointment at Kinshicho Station.",
-        ja: "10:30 - 錦糸町駅で皮膚科の診察。",
-        mapQuery: "Kinshicho Station, Tokyo, Japan"
+        en: "10:30 AM - Skin doctor appointment at Kinshicho Karugamo Dermatology Clinic.",
+        ja: "10:30 - 錦糸町かるがも皮膚科で診察。",
+        website: "https://karugamo-hifuka.com/",
+        mapQuery: "錦糸町かるがも皮膚科, 東京都墨田区"
       },
       accommodation: null,
+      meals: [
+        {
+          label: { en: "Lunch", ja: "昼食" },
+          name: {
+            en: "Madai Ramen Mengyo Kinshicho Parco",
+            ja: "真鯛らーめん 麺魚 錦糸町パルコ店"
+          },
+          website: "https://www.mengyo.net/",
+          mapQuery: "真鯛らーめん 麺魚 錦糸町パルコ店, 東京都墨田区"
+        }
+      ],
       notes: {
-        en: "Lunch at Tai Ramen. Dinner in Koshigaya, possible onsen afterwards.",
-        ja: "昼食はTai Ramen。夕食は越谷で、その後温泉もあり。"
+        en: "Dinner in Koshigaya, possible onsen afterwards.",
+        ja: "夕食は越谷で、その後温泉もあり。"
       },
       thingsToSee: []
     },

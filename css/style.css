@@ -314,6 +314,19 @@ a:hover { color: var(--amber-700); text-decoration: underline; }
   color: var(--ink);
 }
 
+/* Meal */
+.tc-meal {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+.tc-meal .tc-label {
+  display: block;
+  margin-bottom: 2px;
+}
+.tc-meal-detail {
+  color: var(--ink);
+}
+
 /* Notes */
 .tc-notes {
   margin: 0 0 4px;

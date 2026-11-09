@@ -223,6 +223,23 @@
       html += '</div>';
     }
 
+    if (leg.meals) {
+      leg.meals.forEach(function (meal) {
+        html += '<div class="tc-section tc-meal">';
+        html += '<span class="tc-label">' + escapeHtml(t(meal.label)) + '</span>';
+        html += '<span class="tc-meal-detail">' + escapeHtml(t(meal.name)) + '</span>';
+        if (meal.website) {
+          html += ' <a class="tc-site" href="' + escapeHtml(meal.website) + '" target="_blank" rel="noopener">' +
+            escapeHtml(t(STR.website)) + '</a>';
+        }
+        if (meal.mapQuery) {
+          html += ' <a class="tc-map" href="' + mapsLink(meal.mapQuery) + '" target="_blank" rel="noopener">' +
+            escapeHtml(t(STR.map)) + '</a>';
+        }
+        html += '</div>';
+      });
+    }
+
     if (leg.notes) {
       html += '<p class="tc-notes">' + escapeHtml(t(leg.notes)) + '</p>';
     }
