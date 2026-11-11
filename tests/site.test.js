@@ -829,8 +829,19 @@ test("Nov 29 and Nov 30 cards carry the samba session and Harue's appointment", 
   assert.ok(samba.querySelector(".tc-title").textContent.includes("samba"), "samba in title");
   const sambaEvent = samba.querySelector(".tc-event");
   assert.ok(sambaEvent, "samba event rendered");
-  assert.ok(sambaEvent.textContent.includes("11:00 AM"), "start time shown");
-  assert.ok(sambaEvent.textContent.includes("3:00 PM"), "end time shown");
+  assert.ok(sambaEvent.textContent.includes("10:00 AM"), "start time shown");
+  assert.ok(sambaEvent.textContent.includes("2:00 PM"), "end time shown");
+  assert.ok(sambaEvent.textContent.includes("Studio Scout"), "studio named");
+  assert.ok(sambaEvent.textContent.includes("Kaminakazato"), "station named");
+  const studioSite = sambaEvent.querySelector("a.tc-site");
+  assert.ok(studioSite, "studio website link rendered");
+  assert.ok(studioSite.getAttribute("href").indexOf("studio-scout.com") !== -1,
+    "links at the studio site");
+  assert.ok(studioSite.querySelector("svg.tc-icon"), "snare drum icon on the studio link");
+  const studioMap = sambaEvent.querySelector("a.tc-map");
+  assert.ok(studioMap, "studio map link rendered");
+  assert.ok(studioMap.getAttribute("href").indexOf("google.com/maps") !== -1,
+    "map points at Google Maps");
 
   const harue = cardFor(w, "Nov 30");
   assert.ok(harue, "Nov 30 card rendered");
@@ -842,8 +853,10 @@ test("Nov 29 and Nov 30 cards carry the samba session and Harue's appointment", 
 
   w.__trip.setLang("ja");
   const jaSamba = cardFor(w, "Nov 29");
-  assert.ok(jaSamba.querySelector(".tc-event").textContent.includes("15:00"),
+  assert.ok(jaSamba.querySelector(".tc-event").textContent.includes("14:00"),
     "JA end time converted to 24-hour clock");
+  assert.ok(jaSamba.querySelector(".tc-event").textContent.includes("スタジオスカウト"),
+    "JA event names the studio");
   const jaHarue = cardFor(w, "Nov 30");
   assert.ok(jaHarue.querySelector(".tc-notes").textContent.includes("がんセンター"),
     "JA notes name the cancer center");
@@ -872,32 +885,42 @@ test("Nov 29 is booked for samba, Nov 30 stays free for George", () => {
   assert.ok(freeOpt.textContent.includes("[Free]"), "Nov 30 tagged Free");
 });
 
-test("Dec 1 keeps samba and Harue's dinner as an open day", () => {
+test("Dec 1 evening samba at Studio Scout around Harue's dinner", () => {
   const w = fresh().window;
   const card = cardFor(w, "Dec 1");
   assert.ok(card, "Dec 1 card rendered");
   assert.strictEqual(card.querySelector(".tc-day").textContent, "Tuesday", "Dec 1 is a Tuesday");
   assert.strictEqual(card.querySelector(".tc-day-badge").textContent, "Day 7", "seventh trip day");
   assert.ok(card.querySelector(".tc-title").textContent.includes("samba"), "samba in title");
-  assert.strictEqual(card.querySelector(".tc-event"), null, "no booked event block");
+  const ev = card.querySelector(".tc-event");
+  assert.ok(ev, "samba event rendered");
+  assert.ok(ev.textContent.includes("8:00 PM"), "start time shown");
+  assert.ok(ev.textContent.includes("10:00 PM"), "end time shown");
+  assert.ok(ev.textContent.includes("Studio Scout"), "studio named");
+  const site = ev.querySelector("a.tc-site");
+  assert.ok(site, "studio website link rendered");
+  assert.ok(site.getAttribute("href").indexOf("studio-scout.com") !== -1, "links at the studio site");
+  assert.ok(site.querySelector("svg.tc-icon"), "snare drum icon on the studio link");
+  const map = ev.querySelector("a.tc-map");
+  assert.ok(map, "studio map link rendered");
+  assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
   const notes = card.querySelector(".tc-notes").textContent;
-  assert.ok(notes.includes("8:00 PM"), "samba start time shown");
-  assert.ok(notes.includes("10:00 PM"), "samba end time shown");
   assert.ok(notes.includes("Harue"), "Harue's dinner named");
   assert.ok(notes.includes("friends"), "dinner company named");
 
   openCalendar(w);
   const cell = cellFor(w, "Dec 1");
   assert.ok(cell, "Dec 1 cell rendered");
-  assert.ok(cell.classList.contains("free"), "Dec 1 stays free");
+  assert.ok(cell.classList.contains("booked"), "Dec 1 is booked");
   assert.ok(cell.querySelector(".cal-day-desc").textContent.includes("samba"), "desc names samba");
   const opt = optionFor(w, "Dec 1");
-  assert.ok(!opt.disabled, "Dec 1 can be reserved");
-  assert.ok(opt.textContent.includes("[Free]"), "Dec 1 tagged Free");
+  assert.ok(opt.disabled, "Dec 1 cannot be reserved");
+  assert.ok(opt.textContent.includes("[Booked]"), "Dec 1 tagged Booked");
 
   w.__trip.setLang("ja");
-  const jaNotes = cardFor(w, "Dec 1").querySelector(".tc-notes").textContent;
-  assert.ok(jaNotes.includes("20:00") && jaNotes.includes("22:00"), "JA times in 24-hour clock");
+  const jaEvent = cardFor(w, "Dec 1").querySelector(".tc-event");
+  assert.ok(jaEvent.textContent.includes("20:00") && jaEvent.textContent.includes("22:00"),
+    "JA times in 24-hour clock");
 });
 
 test("Hakone leg books Senkyoro for Dec 2-3 with nearby sights", () => {
@@ -947,30 +970,36 @@ test("Hakone leg books Senkyoro for Dec 2-3 with nearby sights", () => {
   assert.ok(!cellFor(w, "Dec 4").classList.contains("booked"), "the stay does not reach Dec 4");
 });
 
-test("Dec 6 pairs George's samba with Harue's Oregon team at Pedro's", () => {
+test("Dec 6 drops samba for the Oregon team party at Pedro's", () => {
   const w = fresh().window;
   const card = cardFor(w, "Dec 6");
   assert.ok(card, "Dec 6 card rendered");
   assert.strictEqual(card.querySelector(".tc-day").textContent, "Sunday", "Dec 6 is a Sunday");
   assert.strictEqual(card.querySelector(".tc-day-badge").textContent, "Day 12", "twelfth trip day");
-  assert.ok(card.querySelector(".tc-event").textContent.includes("Samba"), "samba event shown");
-  const notes = card.querySelector(".tc-notes").textContent;
-  assert.ok(notes.includes("Pedro"), "Pedro's house named");
-  assert.ok(notes.includes("Jiyugaoka"), "neighbourhood named");
-  assert.ok(notes.includes("Oregon"), "Oregon team named");
+  assert.ok(card.textContent.toLowerCase().indexOf("samba") === -1, "no samba left on the card");
+  const event = card.querySelector(".tc-event");
+  assert.ok(event, "party event rendered");
+  assert.ok(event.textContent.includes("Pedro"), "Pedro's house named");
+  assert.ok(event.textContent.includes("Oregon"), "Oregon team named");
+  assert.ok(event.textContent.includes("Jiyugaoka"), "neighbourhood named");
+  const map = event.querySelector("a.tc-map");
+  assert.ok(map, "map link rendered");
+  assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
+  assert.ok(decodeURIComponent(map.getAttribute("href")).indexOf("Jiyugaoka") !== -1,
+    "map query names Jiyugaoka");
 
   openCalendar(w);
   const cell = cellFor(w, "Dec 6");
   assert.ok(cell, "Dec 6 cell rendered");
   assert.ok(cell.classList.contains("booked"), "Dec 6 is booked");
-  assert.ok(cell.querySelector(".cal-day-desc").textContent.includes("samba"), "desc names samba");
+  assert.ok(cell.querySelector(".cal-day-desc").textContent.includes("Pedro"), "desc names Pedro's");
   const opt = optionFor(w, "Dec 6");
   assert.ok(opt.disabled, "Dec 6 cannot be reserved");
   assert.ok(opt.textContent.includes("[Booked]"), "Dec 6 tagged Booked");
 
   w.__trip.setLang("ja");
-  assert.ok(cardFor(w, "Dec 6").querySelector(".tc-notes").textContent.includes("自由が丘"),
-    "JA notes name Jiyugaoka");
+  assert.ok(cardFor(w, "Dec 6").querySelector(".tc-event").textContent.includes("自由が丘"),
+    "JA event names Jiyugaoka");
 });
 
 test("activity form elements are present", () => {

@@ -23,7 +23,7 @@ npm install
 npm test
 ```
 
-The suite (`tests/site.test.js`, 59 tests) loads the real page in jsdom:
+The suite (`tests/site.test.js`, 60 tests) loads the real page in jsdom:
 legs render, EN/JA toggle works, flights and day badges are correct, the
 two-month calendar aligns to weekdays, free days are reservable, busy days
 are blocked, and no Bulgarian keys survive from the template.
@@ -40,7 +40,7 @@ are blocked, and no Bulgarian keys survive from the template.
 | `images/japan-map.svg` | Map placeholder (replace when a real map is picked) |
 | `PRD.md` | Product requirements document |
 | `BACKLOG.md` | Open work |
-| `tests/site.test.js` | 59 tests, all passing |
+| `tests/site.test.js` | 60 tests, all passing |
 
 ## Editing the itinerary
 

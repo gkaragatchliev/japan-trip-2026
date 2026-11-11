@@ -22,7 +22,7 @@ To create a new trip site from this template:
 - Vanilla HTML/CSS/JS (ES5, IIFE, var) -- no frameworks, no build step
 - Vendor libs: Splitting.js (hero title char animation), Rough.js (committed
   for hand-drawn map work, unused so far)
-- node --test + jsdom tests (59 tests), GitHub Pages deploy
+- node --test + jsdom tests (60 tests), GitHub Pages deploy
 
 ## Data Architecture
 - `js/config.js` -- trip-specific settings (title, dates, travelers, email,
@@ -101,7 +101,7 @@ Japanese uses a 24-hour clock for flights.
   skips the map link; unknown flight times use the string `TBD`
 
 ## Tests
-59 tests covering:
+60 tests covering:
 - Itinerary renders all legs, flight numbers, day badges
 - Per-day content for Nov 27, Nov 29, Nov 30, Dec 1, Dec 6, and the
   Dec 2 - Dec 3 Hakone stay (Senkyoro link, 7 sights with map links)

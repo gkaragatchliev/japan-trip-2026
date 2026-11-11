@@ -29,7 +29,7 @@ update `--loc-*` colors in `css/style.css`, deploy.
   `accommodation`, `event` (with `website`/`mapQuery`), `meals[]`
   (`label`, `name`, `website`, `mapQuery`), `notes`, `thingsToSee`,
   `pullquote`. Optional `icon` (`"snake"` = rod of Asclepius, `"bowl"`,
-  `"house"`) on accommodation/event/meals puts an inline SVG on that entity's
+  `"house"`, `"drum"` = snare drum with sticks) on accommodation/event/meals puts an inline SVG on that entity's
   primary link (website if present, else map); icons live in `ICONS` in
   `js/app.js`.
 - `js/app.js` -- all logic in one IIFE: date engine (`parseDate`, `tripDays`,
@@ -37,7 +37,7 @@ update `--loc-*` colors in `css/style.css`, deploy.
   rendering, language toggle, activity form, `STR` (code labels) and
   `STATIC_TEXT` (`data-i18n` labels), Splitting.js init, scroll-reveal,
   progress bar, G/H particles, XSS escaping.
-- `tests/site.test.js` -- `node --test` + jsdom, **59 tests, all green**.
+- `tests/site.test.js` -- `node --test` + jsdom, **60 tests, all green**.
 - `package.json` -- script `npm test`, devDependency `jsdom`.
 
 ## Commands
@@ -85,24 +85,27 @@ update `--loc-*` colors in `css/style.css`, deploy.
 
 ## Current state
 
-- 10 legs: depart PDX Nov 25 (AS2408 + AS123), arrive Tokyo Nov 26 (TBD
-  accommodation), skin doctor at Kinshicho Karugamo Dermatology Nov 27 (10:30,
+- 10 legs: depart PDX Nov 25 (AS2408 + AS123), arrive Tokyo Nov 26 (AirBnB
+  Ryogoku, partial address `2-chome-3-10`, exact address pending), skin
+  doctor at Kinshicho Karugamo Dermatology Nov 27 (10:30,
   `https://karugamo-hifuka.com/`, lunch Madai Ramen Mengyo at Kinshicho PARCO
   `https://www.mengyo.net/` as a `meals[]` entry, dinner Koshigaya + possible
-  onsen), Nov 29 samba 11:00 AM - 3:00 PM,
-  Nov 30 Harue at the cancer center (George free), Dec 1 samba 8:00 PM -
-  10:00 PM + Harue dinner with friends (day left free), Dec 2 - Dec 3 Hakone
+  onsen), Nov 29 samba 10:00 AM - 2:00 PM at Studio Scout near Kaminakazato
+  (`http://www.studio-scout.com/`), Nov 30 Harue at the cancer center (George
+  free), Dec 1 samba 8:00 PM - 10:00 PM at Studio Scout + Harue dinner with
+  friends (day now booked), Dec 2 - Dec 3 Hakone
   onsen with mom and dad at Senkyoro (`https://senkyoro.co.jp/`, 7 nearby
-  sights), Dec 6 George samba + Harue with the Oregon team at Pedro's house
-  in Jiyugaoka, George returns Dec 7 (AS124 + AS488), Harue returns Dec 13
-  (same flights). Nov 28, Dec 4, Dec 5 and Dec 8 - Dec 12 intentionally open.
+  sights), Dec 6 Oregon team party at Pedro's near Jiyugaoka Station (Meguro
+  City, time TBC, no samba), George returns Dec 7 (AS124 + AS488), Harue
+  returns Dec 13 (same flights). Nov 28, Dec 4, Dec 5 and Dec 8 - Dec 12
+  intentionally open.
 - Flight gaps: AS2408 and AS124 arrival times/durations are `TBD` pending
-  confirmation. Dec 6 samba start time is `time to be confirmed`. Tracked in
+  confirmation. Dec 6 party start time is `time to be confirmed`. Tracked in
   `BACKLOG.md`.
 - Calendar renders two month grids (November, December 2026) driven by
   `TRIP_CONFIG.range`; `busyDays` is empty.
 - Map is a placeholder SVG (`images/japan-map.svg`).
 - Location accent colors: tokyo, kyoto, osaka, transit (template) + hakone.
 - All UI bilingual EN/JA with the toggle in the top-right corner.
-- 59 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
+- 60 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
   fails tests 51, 53, 56; breaking `hasConcrete` or `labelDate` fails 44/47).

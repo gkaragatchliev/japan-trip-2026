@@ -94,16 +94,19 @@ var TRIP = {
       location: { en: "Tokyo", ja: "東京" },
       date: "Nov 29",
       day: { en: "Sunday", ja: "日曜日" },
-      title: { en: "Afternoon samba session", ja: "午後のサンバ練習" },
+      title: { en: "Sunday samba at Studio Scout", ja: "日曜はスタジオスカウトでサンバ" },
       flight: null,
       event: {
-        en: "11:00 AM - 3:00 PM samba session.",
-        ja: "11:00 - 15:00 サンバの練習。"
+        en: "10:00 AM - 2:00 PM samba session at Studio Scout, near Kaminakazato Station.",
+        ja: "10:00 - 14:00 上中里駅近くのスタジオスカウトでサンバ。",
+        website: "http://www.studio-scout.com/",
+        mapQuery: "スタジオスカウト, 東京都北区西ケ原1-29-7",
+        icon: "drum"
       },
       accommodation: null,
       notes: {
-        en: "George dances samba on Sunday afternoon. The rest of the day is unplanned.",
-        ja: "Georgeは日曜の午後にサンバ。ほかの時間は未定です。"
+        en: "George dances samba with the group. The rest of the day is unplanned.",
+        ja: "Georgeはみんなでサンバ。ほかの時間は未定です。"
       },
       thingsToSee: []
     },
@@ -128,10 +131,17 @@ var TRIP = {
       day: { en: "Tuesday", ja: "火曜日" },
       title: { en: "Evening samba and Harue's dinner with friends", ja: "夕方のサンバとHarueの友人との夕食" },
       flight: null,
+      event: {
+        en: "8:00 PM - 10:00 PM samba session at Studio Scout, near Kaminakazato Station.",
+        ja: "20:00 - 22:00 上中里駅近くのスタジオスカウトでサンバ。",
+        website: "http://www.studio-scout.com/",
+        mapQuery: "スタジオスカウト, 東京都北区西ケ原1-29-7",
+        icon: "drum"
+      },
       accommodation: null,
       notes: {
-        en: "Samba 8:00 PM - 10:00 PM. Harue has dinner with friends. Day stays open for now.",
-        ja: "サンバは20:00 - 22:00。Harueは友人と夕食。まだ空きです。"
+        en: "Harue has dinner with friends. The rest of the day stays open.",
+        ja: "Harueは友人と夕食。ほかの時間は空きです。"
       },
       thingsToSee: []
     },
@@ -186,20 +196,21 @@ var TRIP = {
       ]
     },
     {
-      id: "dec6-samba-pedros",
+      id: "dec6-oregon-party",
       location: { en: "Tokyo", ja: "東京" },
       date: "Dec 6",
       day: { en: "Sunday", ja: "日曜日" },
-      title: { en: "Evening samba, then Pedro's in Jiyugaoka", ja: "夕方のサンバ、その後は自由が丘のPedro's" },
+      title: { en: "Oregon team party at Pedro's in Jiyugaoka", ja: "自由が丘のPedro'sでオレゴンチームのパーティー" },
       flight: null,
       event: {
-        en: "Samba session (time to be confirmed).",
-        ja: "サンバ（時間未定）。"
+        en: "Oregon team party at Pedro's house, near Jiyugaoka Station (Meguro City). Time to be confirmed.",
+        ja: "自由が丘駅近く（目黒区）のPedro's宅でオレゴンチームのパーティー。時間未定。",
+        mapQuery: "Jiyugaoka Station, Tokyo"
       },
       accommodation: null,
       notes: {
-        en: "Harue is with the Oregon team at Pedro's house in Jiyugaoka. George joins them after samba.",
-        ja: "Harueは自由が丘のPedro's宅でオレゴンチームと合流。Georgeはサンバの後に合流します。"
+        en: "Harue is with the Oregon team at Pedro's house in Jiyugaoka.",
+        ja: "Harueは自由が丘のPedro's宅でオレゴンチームと一緒です。"
       },
       thingsToSee: []
     },

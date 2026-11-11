@@ -5,10 +5,10 @@ Open work, highest value first. Tick items off as they land.
 ## Itinerary (user fills in)
 - [ ] Days Dec 8 - Dec 12: Harue solo legs
 - [ ] Nov 27 evening: confirm the possible onsen after dinner in Koshigaya
-- [ ] Samba venue for Nov 29 / Dec 1 / Dec 6, plus the Dec 6 start time
-      (Dec 6 event currently reads "time to be confirmed")
+- [ ] Dec 6 Oregon team party start time (venue set: Pedro's near Jiyugaoka
+      Station; samba venue settled for Nov 29 / Dec 1 at Studio Scout)
 - [ ] Transport to and from Hakone on Dec 2 and Dec 4 (no drive/train block)
-- [ ] Accommodation on `arrive-tokyo` (currently `TBD`)
+- [ ] Exact AirBnB address in Ryogoku (data has the partial `2-chome-3-10`)
 - [ ] Things to see on legs other than Hakone (Hakone has 7, the rest are empty)
 - [ ] Pull quotes on the legs that deserve them
 - [ ] `busyDays` entries for anything that must not be offered on the form

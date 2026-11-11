@@ -160,7 +160,16 @@
     house:
       '<svg class="tc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
       '<path fill="currentColor" fill-rule="evenodd" ' +
-      'd="M12 2.5 21 10.5h-2.5v10h-13v-10H3L12 2.5Zm-2 12h4v6h-4z"/></svg>'
+      'd="M12 2.5 21 10.5h-2.5v10h-13v-10H3L12 2.5Zm-2 12h4v6h-4z"/></svg>',
+    drum:
+      '<svg class="tc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path d="M6 4.5 14.5 7.8M18 4.5 9.5 7.8" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.5" stroke-linecap="round"/>' +
+      '<ellipse cx="12" cy="9.5" rx="7" ry="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>' +
+      '<path d="M5 9.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.6"/>' +
+      '<path d="M8.6 11.5v5.2M15.4 11.5v5.2" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.2" stroke-linecap="round"/></svg>'
   };
 
   function iconSvg(name) {
