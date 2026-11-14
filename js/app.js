@@ -591,7 +591,8 @@
       if (entry.leg) {
         var leg = entry.leg;
         var hasConcrete = leg.flight || leg.flights || leg.drive || leg.accommodation ||
-          (leg.thingsToSee && leg.thingsToSee.length > 0) || leg.pullquote || leg.event;
+          (leg.thingsToSee && leg.thingsToSee.length > 0) || leg.pullquote || leg.event ||
+          (leg.meals && leg.meals.length > 0);
         entry.desc = t(leg.title);
         if (leg.flight || leg.flights) entry.status = "travel";
         else if (hasConcrete) entry.status = "booked";

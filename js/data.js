@@ -115,7 +115,7 @@ var TRIP = {
       location: { en: "Tokyo", ja: "東京" },
       date: "Nov 30",
       day: { en: "Monday", ja: "月曜日" },
-      title: { en: "Harue at the cancer center, George free", ja: "Harueはがんセンター、Georgeは自由日" },
+      title: { en: "Harue at the cancer center, dinner at Switch", ja: "Harueはがんセンター、Switchで夕食" },
       flight: null,
       accommodation: null,
       meals: [

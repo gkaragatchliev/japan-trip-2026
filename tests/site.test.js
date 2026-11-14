@@ -850,6 +850,17 @@ test("Nov 29 and Nov 30 cards carry the samba session and Harue's appointment", 
   const harueNotes = harue.querySelector(".tc-notes").textContent;
   assert.ok(harueNotes.includes("cancer center"), "Harue's appointment shown");
   assert.ok(harueNotes.includes("George is free"), "George's freedom shown");
+  const dinner = harue.querySelector(".tc-meal");
+  assert.ok(dinner, "Nov 30 dinner meal section rendered");
+  assert.strictEqual(dinner.querySelector(".tc-label").textContent, "Dinner", "EN label");
+  assert.ok(dinner.textContent.includes("Switch"), "Switch named");
+  const dinnerMap = dinner.querySelector("a.tc-map");
+  assert.ok(dinnerMap, "dinner map link rendered");
+  assert.ok(dinnerMap.getAttribute("href").indexOf("google.com/maps") !== -1,
+    "map points at Google Maps");
+  assert.ok(dinnerMap.getAttribute("href").indexOf("Nishishinjuku") !== -1,
+    "map query carries the Nishishinjuku address");
+  assert.ok(dinnerMap.querySelector("svg.tc-icon"), "noodle bowl icon on the dinner link");
 
   w.__trip.setLang("ja");
   const jaSamba = cardFor(w, "Nov 29");
@@ -862,7 +873,7 @@ test("Nov 29 and Nov 30 cards carry the samba session and Harue's appointment", 
     "JA notes name the cancer center");
 });
 
-test("Nov 29 is booked for samba, Nov 30 stays free for George", () => {
+test("Nov 29 is booked for samba, Nov 30 is booked for dinner at Switch", () => {
   const w = fresh().window;
   openCalendar(w);
 
@@ -875,14 +886,16 @@ test("Nov 29 is booked for samba, Nov 30 stays free for George", () => {
   assert.ok(sambaOpt.disabled, "Nov 29 cannot be reserved");
   assert.ok(sambaOpt.textContent.includes("[Booked]"), "Nov 29 tagged Booked");
 
-  const freeCell = cellFor(w, "Nov 30");
-  assert.ok(freeCell, "Nov 30 cell rendered");
-  assert.ok(freeCell.classList.contains("free"), "Nov 30 stays free for George");
-  assert.ok(freeCell.querySelector(".cal-day-desc").textContent.includes("cancer center"),
+  const dinnerCell = cellFor(w, "Nov 30");
+  assert.ok(dinnerCell, "Nov 30 cell rendered");
+  assert.ok(dinnerCell.classList.contains("booked"), "Nov 30 is booked, not free");
+  const dinnerDesc = dinnerCell.querySelector(".cal-day-desc").textContent;
+  assert.ok(dinnerDesc.includes("cancer center"),
     "Nov 30 still shows Harue's appointment");
-  const freeOpt = optionFor(w, "Nov 30");
-  assert.ok(!freeOpt.disabled, "Nov 30 can be reserved");
-  assert.ok(freeOpt.textContent.includes("[Free]"), "Nov 30 tagged Free");
+  assert.ok(dinnerDesc.includes("Switch"), "Nov 30 description names the dinner");
+  const dinnerOpt = optionFor(w, "Nov 30");
+  assert.ok(dinnerOpt.disabled, "Nov 30 cannot be reserved");
+  assert.ok(dinnerOpt.textContent.includes("[Booked]"), "Nov 30 tagged Booked");
 });
 
 test("Dec 1 evening samba at Studio Scout around Harue's dinner", () => {
