@@ -118,9 +118,17 @@ var TRIP = {
       title: { en: "Harue at the cancer center, George free", ja: "Harueはがんセンター、Georgeは自由日" },
       flight: null,
       accommodation: null,
+      meals: [
+        {
+          label: { en: "Dinner", ja: "夕食" },
+          name: { en: "Switch", ja: "スイッチ" },
+          mapQuery: "Switch, 8-chome-13-4 Nishishinjuku, Shinjuku City, Tokyo",
+          icon: "bowl"
+        }
+      ],
       notes: {
-        en: "Harue has an appointment at the cancer center. George is free for the day.",
-        ja: "Harueはがんセンターへ受診。Georgeはこの日は自由です。"
+        en: "Harue has an appointment at the cancer center. George is free for the day. Dinner together at Switch in Nishishinjuku.",
+        ja: "Harueはがんセンターへ受診。Georgeはこの日は自由です。夕食は西新宿のSwitchで一緒に。"
       },
       thingsToSee: []
     },
