@@ -12,8 +12,8 @@ var TRIP = {
       flights: [
         {
           airline: "Alaska Airlines",
-          number: "AS2408",
-          depart: "PDX 9:25 AM",
+          number: "AS490",
+          depart: "PDX 7:22 AM",
           arrive: "SEA TBD",
           duration: "TBD",
           cabin: "Main Cabin"

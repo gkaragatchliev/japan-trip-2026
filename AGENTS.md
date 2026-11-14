@@ -85,7 +85,7 @@ update `--loc-*` colors in `css/style.css`, deploy.
 
 ## Current state
 
-- 10 legs: depart PDX Nov 25 (AS2408 + AS123), arrive Tokyo Nov 26 (AirBnB
+- 10 legs: depart PDX Nov 25 (AS490 + AS123), arrive Tokyo Nov 26 (AirBnB
   Ryogoku, partial address `2-chome-3-10`, exact address pending), skin
   doctor at Kinshicho Karugamo Dermatology Nov 27 (10:30,
   `https://karugamo-hifuka.com/`, lunch Madai Ramen Mengyo at Kinshicho PARCO
@@ -99,7 +99,7 @@ update `--loc-*` colors in `css/style.css`, deploy.
   City, time TBC, no samba), George returns Dec 7 (AS124 + AS488), Harue
   returns Dec 13 (same flights). Nov 28, Dec 4, Dec 5 and Dec 8 - Dec 12
   intentionally open.
-- Flight gaps: AS2408 and AS124 arrival times/durations are `TBD` pending
+- Flight gaps: AS490 and AS124 arrival times/durations are `TBD` pending
   confirmation. Dec 6 party start time is `time to be confirmed`. Tracked in
   `BACKLOG.md`.
 - Calendar renders two month grids (November, December 2026) driven by

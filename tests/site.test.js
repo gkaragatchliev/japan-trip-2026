@@ -157,7 +157,7 @@ test("outbound and return flight numbers match the booked itinerary", () => {
   const w = fresh().window;
   const legs = w.__trip.TRIP.legs;
   const numbers = (leg) => (leg.flights || []).map((f) => f.number).join(",");
-  assert.strictEqual(numbers(legs.find((l) => l.id === "depart-pdx")), "AS2408,AS123");
+  assert.strictEqual(numbers(legs.find((l) => l.id === "depart-pdx")), "AS490,AS123");
   assert.strictEqual(numbers(legs.find((l) => l.id === "george-return")), "AS124,AS488");
   assert.strictEqual(numbers(legs.find((l) => l.id === "harue-return")), "AS124,AS488");
 });
@@ -250,9 +250,9 @@ test("outbound flights render as boarding-pass blocks", () => {
   assert.ok(card, "Nov 25 card rendered");
   const flights = card.querySelectorAll(".tc-flight");
   assert.strictEqual(flights.length, 2, "both flights rendered");
-  assert.ok(card.textContent.includes("AS2408"), "AS2408 shown");
+  assert.ok(card.textContent.includes("AS490"), "AS490 shown");
   assert.ok(card.textContent.includes("AS123"), "AS123 shown");
-  assert.ok(card.textContent.includes("PDX 9:25 AM"), "PDX departure time shown");
+  assert.ok(card.textContent.includes("PDX 7:22 AM"), "PDX departure time shown");
   assert.ok(card.textContent.includes("NRT 3:25 PM (+1 day)"), "Narita arrival shown");
 });
 
@@ -539,7 +539,7 @@ test("Japanese flight times switch to the 24-hour clock", () => {
   const w = fresh().window;
   w.__trip.setLang("ja");
   const detail = cardFor(w, "Nov 25").querySelector(".tc-flight-detail").textContent;
-  assert.ok(detail.includes("09:25"), "9:25 AM becomes 09:25");
+  assert.ok(detail.includes("07:22"), "7:22 AM becomes 07:22");
   assert.ok(!/\d\s*AM/i.test(detail), "no AM marker left");
   const arrival = cardFor(w, "Nov 25").querySelectorAll(".tc-flight-detail")[1].textContent;
   assert.ok(arrival.includes("15:25"), "3:25 PM becomes 15:25");

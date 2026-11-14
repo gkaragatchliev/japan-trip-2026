@@ -15,8 +15,8 @@ Open work, highest value first. Tick items off as they land.
 - Open on purpose: Nov 28, Dec 4, Dec 5, and all of Dec 8 - Dec 12
 
 ## Flight data gaps
-- [ ] AS2408 arrival time in SEA (shown as `SEA TBD`)
-- [ ] AS2408 duration (shown as `TBD`)
+- [ ] AS490 arrival time in SEA (shown as `SEA TBD`)
+- [ ] AS490 duration (shown as `TBD`)
 - [ ] AS124 arrival time in SEA (shown as `SEA TBD`)
 - [ ] AS124 duration (shown as `TBD`)
 - AS123 duration is derived: 11:55 AM PST departure, 3:25 PM JST arrival
