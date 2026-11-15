@@ -996,6 +996,15 @@ test("Hakone leg books Senkyoro for Dec 2-3 with nearby sights", () => {
     assert.ok(opt.textContent.includes("[Booked]"), `${label} tagged Booked`);
   });
   assert.ok(!cellFor(w, "Dec 4").classList.contains("booked"), "the stay does not reach Dec 4");
+
+  const notes = cardFor(w, "Dec 2 - Dec 3").querySelector(".tc-notes").textContent;
+  assert.ok(notes.includes("One night"), "EN notes say one night");
+  assert.ok(notes.toLowerCase().indexOf("two nights") === -1, "EN notes drop the two-night wording");
+
+  w.__trip.setLang("ja");
+  const jaNotes = cardFor(w, "Dec 2 - Dec 3").querySelector(".tc-notes").textContent;
+  assert.ok(jaNotes.includes("一泊"), "JA notes say one night");
+  assert.ok(jaNotes.indexOf("二泊") === -1, "JA notes drop the two-night wording");
 });
 
 test("Dec 6 drops samba for the Oregon team party at Pedro's", () => {

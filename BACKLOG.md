@@ -8,7 +8,7 @@ Open work, highest value first. Tick items off as they land.
       Nov 29 (Nov 29 now carries dinner with family + possible onsen)
 - [ ] Dec 6 Oregon team party start time (venue set: Pedro's near Jiyugaoka
       Station; samba venue settled for Nov 29 / Dec 1 at Studio Scout)
-- [ ] Transport to and from Hakone on Dec 2 and Dec 4 (no drive/train block)
+- [ ] Transport to and from Hakone on Dec 2 and Dec 3 (one night; no drive/train block)
 - [ ] Exact AirBnB address in Ryogoku (data has the partial `2-chome-3-10`)
 - [ ] Things to see on legs other than Hakone (Hakone has 7, the rest are empty)
 - [ ] Pull quotes on the legs that deserve them

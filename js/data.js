@@ -169,8 +169,8 @@ var TRIP = {
         }
       },
       notes: {
-        en: "Two nights soaking in the onsen with mom and dad. Dec 4 and Dec 5 are still open.",
-        ja: "母と父と温泉で2泊。12月4日と5日はまだ空きです。"
+        en: "One night soaking in the onsen with mom and dad. Back on Dec 3; Dec 4 and Dec 5 are still open.",
+        ja: "母と父と一泊で温泉に浸かる。12月3日に戻る。12月4日と5日はまだ空きです。"
       },
       thingsToSee: [
         {
