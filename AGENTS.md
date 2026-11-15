@@ -37,7 +37,7 @@ update `--loc-*` colors in `css/style.css`, deploy.
   rendering, language toggle, activity form, `STR` (code labels) and
   `STATIC_TEXT` (`data-i18n` labels), Splitting.js init, scroll-reveal,
   progress bar, G/H particles, XSS escaping.
-- `tests/site.test.js` -- `node --test` + jsdom, **60 tests, all green**.
+- `tests/site.test.js` -- `node --test` + jsdom, **61 tests, all green**.
 - `package.json` -- script `npm test`, devDependency `jsdom`.
 
 ## Commands
@@ -91,7 +91,8 @@ update `--loc-*` colors in `css/style.css`, deploy.
   `https://karugamo-hifuka.com/`, lunch Madai Ramen Mengyo at Kinshicho PARCO
   `https://www.mengyo.net/` as a `meals[]` entry, dinner Koshigaya + possible
   onsen), Nov 29 samba 10:00 AM - 2:00 PM at Studio Scout near Kaminakazato
-  (`http://www.studio-scout.com/`), Nov 30 Harue at the cancer center (George
+  (`http://www.studio-scout.com/`) then family dinner and possible onsen in
+  Koshigaya, Nov 30 Harue at the cancer center (George
   free), Dec 1 samba 8:00 PM - 10:00 PM at Studio Scout + Harue dinner with
   friends (day now booked), Dec 2 - Dec 3 Hakone
   onsen with mom and dad at Senkyoro (`https://senkyoro.co.jp/`, 7 nearby
@@ -107,5 +108,5 @@ update `--loc-*` colors in `css/style.css`, deploy.
 - Map is a placeholder SVG (`images/japan-map.svg`).
 - Location accent colors: tokyo, kyoto, osaka, transit (template) + hakone.
 - All UI bilingual EN/JA with the toggle in the top-right corner.
-- 60 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
+- 61 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
   fails tests 51, 53, 56; breaking `hasConcrete` or `labelDate` fails 44/47).

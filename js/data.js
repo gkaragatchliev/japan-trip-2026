@@ -94,7 +94,7 @@ var TRIP = {
       location: { en: "Tokyo", ja: "東京" },
       date: "Nov 29",
       day: { en: "Sunday", ja: "日曜日" },
-      title: { en: "Sunday samba at Studio Scout", ja: "日曜はスタジオスカウトでサンバ" },
+      title: { en: "Sunday samba, family dinner, maybe onsen in Koshigaya", ja: "日曜はサンバ、家族と夕食、越谷で温泉も" },
       flight: null,
       event: {
         en: "10:00 AM - 2:00 PM samba session at Studio Scout, near Kaminakazato Station.",
@@ -105,8 +105,8 @@ var TRIP = {
       },
       accommodation: null,
       notes: {
-        en: "George dances samba with the group. The rest of the day is unplanned.",
-        ja: "Georgeはみんなでサンバ。ほかの時間は未定です。"
+        en: "George dances samba with the group. Afterwards dinner with family, then maybe an onsen in Koshigaya.",
+        ja: "Georgeはみんなでサンバ。その後家族と夕食、そのあと越谷で温泉もあり。"
       },
       thingsToSee: []
     },

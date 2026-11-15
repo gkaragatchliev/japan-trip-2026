@@ -873,6 +873,21 @@ test("Nov 29 and Nov 30 cards carry the samba session and Harue's appointment", 
     "JA notes name the cancer center");
 });
 
+test("Nov 29 adds the family dinner and optional onsen in Koshigaya", () => {
+  const w = fresh().window;
+
+  const notes = cardFor(w, "Nov 29").querySelector(".tc-notes").textContent;
+  assert.ok(notes.includes("family"), "EN notes name the family dinner");
+  assert.ok(notes.includes("Koshigaya"), "EN notes say where the onsen may happen");
+  assert.ok(notes.includes("onsen"), "EN notes mention the onsen");
+
+  w.__trip.setLang("ja");
+  const jaNotes = cardFor(w, "Nov 29").querySelector(".tc-notes").textContent;
+  assert.ok(jaNotes.includes("家族"), "JA notes name the family dinner");
+  assert.ok(jaNotes.includes("越谷"), "JA notes say where the onsen may happen");
+  assert.ok(jaNotes.includes("温泉"), "JA notes mention the onsen");
+});
+
 test("Nov 29 is booked for samba, Nov 30 is booked for dinner at Switch", () => {
   const w = fresh().window;
   openCalendar(w);

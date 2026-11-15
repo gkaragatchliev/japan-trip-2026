@@ -4,7 +4,8 @@ Open work, highest value first. Tick items off as they land.
 
 ## Itinerary (user fills in)
 - [ ] Days Dec 8 - Dec 12: Harue solo legs
-- [ ] Nov 27 evening: confirm the possible onsen after dinner in Koshigaya
+- [ ] Nov 27 evening: confirm whether the Koshigaya dinner/onsen moved to
+      Nov 29 (Nov 29 now carries dinner with family + possible onsen)
 - [ ] Dec 6 Oregon team party start time (venue set: Pedro's near Jiyugaoka
       Station; samba venue settled for Nov 29 / Dec 1 at Studio Scout)
 - [ ] Transport to and from Hakone on Dec 2 and Dec 4 (no drive/train block)
