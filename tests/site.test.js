@@ -232,7 +232,7 @@ test("timeline renders all legs", () => {
   const w = fresh().window;
   const cards = w.document.querySelectorAll("#timeline .timeline-card");
   assert.strictEqual(cards.length, w.__trip.TRIP.legs.length, "one card per leg");
-  assert.strictEqual(cards.length, 10, "ten legs (8 planned days + 2 returns)");
+  assert.strictEqual(cards.length, 11, "eleven legs (9 planned days + 2 returns)");
 });
 
 test("timeline card shows date, day, and title in English", () => {
@@ -324,7 +324,8 @@ test("day badges count from Nov 25 as Day 1", () => {
   assert.strictEqual(badge("Nov 26"), "Day 2");
   assert.strictEqual(badge("Nov 27"), "Day 3");
   assert.strictEqual(badge("Dec 1"), "Day 7");
-  assert.strictEqual(badge("Dec 2 - Dec 3"), "Day 8");
+  assert.strictEqual(badge("Dec 2"), "Day 8");
+  assert.strictEqual(badge("Dec 3"), "Day 9");
   assert.strictEqual(badge("Dec 6"), "Day 12");
   assert.strictEqual(badge("Dec 7"), "Day 13");
   assert.strictEqual(badge("Dec 13"), "Day 19");
@@ -860,7 +861,7 @@ test("Nov 29 and Nov 30 cards carry the samba session and Harue's appointment", 
     "map points at Google Maps");
   assert.ok(dinnerMap.getAttribute("href").indexOf("Nishishinjuku") !== -1,
     "map query carries the Nishishinjuku address");
-  assert.ok(dinnerMap.querySelector("svg.tc-icon"), "noodle bowl icon on the dinner link");
+  assert.ok(dinnerMap.querySelector("svg.tc-icon"), "red wine bottle icon on the dinner link");
 
   w.__trip.setLang("ja");
   const jaSamba = cardFor(w, "Nov 29");
@@ -951,14 +952,14 @@ test("Dec 1 evening samba at Studio Scout around Harue's dinner", () => {
     "JA times in 24-hour clock");
 });
 
-test("Hakone leg books Senkyoro for Dec 2-3 with nearby sights", () => {
+test("Hakone leg books Senkyoro for Dec 2 with nearby sights", () => {
   const w = fresh().window;
-  const card = cardFor(w, "Dec 2 - Dec 3");
+  const card = cardFor(w, "Dec 2");
   assert.ok(card, "Hakone card rendered");
-  assert.strictEqual(card.querySelector(".tc-date").textContent, "Dec 2 - Dec 3", "date range shown");
+  assert.strictEqual(card.querySelector(".tc-date").textContent, "Dec 2", "single date shown");
   assert.strictEqual(card.querySelector(".tc-day-badge").textContent, "Day 8", "stay starts on day 8");
-  assert.strictEqual(card.querySelector(".tc-day").textContent, "Wednesday - Thursday",
-    "day label spans both nights");
+  assert.strictEqual(card.querySelector(".tc-day").textContent, "Wednesday",
+    "day label names the stay night");
 
   const acc = card.querySelector(".tc-accommodation");
   assert.ok(acc, "accommodation section rendered");
@@ -997,14 +998,46 @@ test("Hakone leg books Senkyoro for Dec 2-3 with nearby sights", () => {
   });
   assert.ok(!cellFor(w, "Dec 4").classList.contains("booked"), "the stay does not reach Dec 4");
 
-  const notes = cardFor(w, "Dec 2 - Dec 3").querySelector(".tc-notes").textContent;
+  const notes = cardFor(w, "Dec 2").querySelector(".tc-notes").textContent;
   assert.ok(notes.includes("One night"), "EN notes say one night");
   assert.ok(notes.toLowerCase().indexOf("two nights") === -1, "EN notes drop the two-night wording");
 
   w.__trip.setLang("ja");
-  const jaNotes = cardFor(w, "Dec 2 - Dec 3").querySelector(".tc-notes").textContent;
+  const jaNotes = cardFor(w, "Dec 2").querySelector(".tc-notes").textContent;
   assert.ok(jaNotes.includes("一泊"), "JA notes say one night");
   assert.ok(jaNotes.indexOf("二泊") === -1, "JA notes drop the two-night wording");
+});
+
+test("Dec 3 adds dinner at Switch with Mohan", () => {
+  const w = fresh().window;
+  const card = cardFor(w, "Dec 3");
+  assert.ok(card, "Dec 3 card rendered");
+  assert.strictEqual(card.querySelector(".tc-day").textContent, "Thursday", "Dec 3 is a Thursday");
+  assert.ok(card.querySelector(".tc-title").textContent.includes("Hakone"), "returns from Hakone");
+  const meal = card.querySelector(".tc-meal");
+  assert.ok(meal, "dinner meal rendered");
+  assert.strictEqual(meal.querySelector(".tc-label").textContent, "Dinner", "EN label");
+  assert.ok(meal.textContent.includes("Switch"), "Switch named");
+  const map = meal.querySelector("a.tc-map");
+  assert.ok(map, "dinner map link rendered");
+  assert.ok(map.getAttribute("href").indexOf("Nishishinjuku") !== -1,
+    "map query carries the Nishishinjuku address");
+  assert.ok(card.querySelector(".tc-notes").textContent.includes("Mohan"), "Mohan named");
+
+  w.__trip.setLang("ja");
+  const ja = cardFor(w, "Dec 3");
+  assert.ok(ja.querySelector(".tc-title").textContent.includes("箱根"), "JA title names Hakone");
+  assert.ok(ja.querySelector(".tc-notes").textContent.includes("Mohan"), "JA notes name Mohan");
+});
+
+test("both Switch dinners carry the red wine bottle icon", () => {
+  const w = fresh().window;
+  const nov30 = cardFor(w, "Nov 30").querySelector(".tc-meal a.tc-map svg.tc-icon");
+  const dec3 = cardFor(w, "Dec 3").querySelector(".tc-meal a.tc-map svg.tc-icon");
+  assert.ok(nov30, "Nov 30 dinner carries an icon");
+  assert.ok(dec3, "Dec 3 dinner carries an icon");
+  assert.strictEqual(nov30.outerHTML, dec3.outerHTML, "both dinners share the same icon");
+  assert.ok(nov30.querySelector('path[d^="M10 2h4v5"]'), "icon is the wine bottle silhouette");
 });
 
 test("Dec 6 drops samba for the Oregon team party at Pedro's", () => {

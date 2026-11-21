@@ -4,10 +4,10 @@ A bilingual (EN/JA) static reference site for George and Harue's
 November 25 - December 13, 2026 trip to Japan. Displays the itinerary,
 flights, and things to see at each stop. Deployed on GitHub Pages.
 
-Ten legs are filled in: both flights out, the Nov 27 Kinshicho day, the
-Nov 29 samba, Nov 30, Dec 1, the Dec 2 - Dec 3 Hakone stay, Dec 6, and both
-returns. Nov 28, Dec 4, and Dec 5 are deliberately open. See `BACKLOG.md`
-for what is pending.
+Eleven legs are filled in: both flights out, the Nov 27 Kinshicho day, the
+Nov 29 samba, Nov 30, Dec 1, the Dec 2 Hakone stay, the Dec 3 Switch dinner,
+Dec 6, and both returns. Nov 28, Dec 4, and Dec 5 are deliberately open. See
+`BACKLOG.md` for what is pending.
 
 ## Run locally
 

@@ -123,7 +123,7 @@ var TRIP = {
           label: { en: "Dinner", ja: "夕食" },
           name: { en: "Switch", ja: "スイッチ" },
           mapQuery: "Switch, 8-chome-13-4 Nishishinjuku, Shinjuku City, Tokyo",
-          icon: "bowl"
+          icon: "wine"
         }
       ],
       notes: {
@@ -156,8 +156,8 @@ var TRIP = {
     {
       id: "hakone-onsen",
       location: { en: "Hakone", ja: "箱根" },
-      date: "Dec 2 - Dec 3",
-      day: { en: "Wednesday - Thursday", ja: "水曜日 - 木曜日" },
+      date: "Dec 2",
+      day: { en: "Wednesday", ja: "水曜日" },
       title: { en: "Hakone onsen with mom and dad", ja: "母と父と箱根温泉" },
       flight: null,
       accommodation: {
@@ -169,8 +169,8 @@ var TRIP = {
         }
       },
       notes: {
-        en: "One night soaking in the onsen with mom and dad. Back on Dec 3; Dec 4 and Dec 5 are still open.",
-        ja: "母と父と一泊で温泉に浸かる。12月3日に戻る。12月4日と5日はまだ空きです。"
+        en: "One night soaking in the onsen with mom and dad. Back to Tokyo on Dec 3.",
+        ja: "母と父と一泊で温泉に浸かる。12月3日に東京へ戻る。"
       },
       thingsToSee: [
         {
@@ -202,6 +202,28 @@ var TRIP = {
           info: { en: "Zen temple founded in 1658 in the Sengokuhara highlands.", ja: "仙石原にある禅寺。1658年創建。" }
         }
       ]
+    },
+    {
+      id: "dec3-switch-dinner",
+      location: { en: "Tokyo", ja: "東京" },
+      date: "Dec 3",
+      day: { en: "Thursday", ja: "木曜日" },
+      title: { en: "Back from Hakone, dinner at Switch with Mohan", ja: "箱根から戻り、MohanとSwitchで夕食" },
+      flight: null,
+      accommodation: null,
+      meals: [
+        {
+          label: { en: "Dinner", ja: "夕食" },
+          name: { en: "Switch", ja: "スイッチ" },
+          mapQuery: "Switch, 8-chome-13-4 Nishishinjuku, Shinjuku City, Tokyo",
+          icon: "wine"
+        }
+      ],
+      notes: {
+        en: "Return from Hakone. Dinner at Switch in Nishishinjuku with Mohan. Dec 4 and Dec 5 are still open.",
+        ja: "箱根から戻る。西新宿のSwitchでMohanと夕食。12月4日と5日はまだ空きです。"
+      },
+      thingsToSee: []
     },
     {
       id: "dec6-oregon-party",

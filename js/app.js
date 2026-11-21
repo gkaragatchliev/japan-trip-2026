@@ -169,7 +169,12 @@
       '<path d="M5 9.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6" fill="none" stroke="currentColor" ' +
       'stroke-width="1.6"/>' +
       '<path d="M8.6 11.5v5.2M15.4 11.5v5.2" fill="none" stroke="currentColor" ' +
-      'stroke-width="1.2" stroke-linecap="round"/></svg>'
+      'stroke-width="1.2" stroke-linecap="round"/></svg>',
+    wine:
+      '<svg class="tc-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path d="M10 2h4v5l2 3v10a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10l2-3V2Z" fill="none" ' +
+      'stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>' +
+      '<path d="M9.5 13h5v4h-5z" fill="currentColor"/></svg>'
   };
 
   function iconSvg(name) {

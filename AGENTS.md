@@ -37,7 +37,7 @@ update `--loc-*` colors in `css/style.css`, deploy.
   rendering, language toggle, activity form, `STR` (code labels) and
   `STATIC_TEXT` (`data-i18n` labels), Splitting.js init, scroll-reveal,
   progress bar, G/H particles, XSS escaping.
-- `tests/site.test.js` -- `node --test` + jsdom, **61 tests, all green**.
+- `tests/site.test.js` -- `node --test` + jsdom, **63 tests, all green**.
 - `package.json` -- script `npm test`, devDependency `jsdom`.
 
 ## Commands
@@ -94,9 +94,10 @@ update `--loc-*` colors in `css/style.css`, deploy.
   (`http://www.studio-scout.com/`) then family dinner and possible onsen in
   Koshigaya, Nov 30 Harue at the cancer center (George
   free), Dec 1 samba 8:00 PM - 10:00 PM at Studio Scout + Harue dinner with
-  friends (day now booked), Dec 2 - Dec 3 Hakone
-  onsen with mom and dad at Senkyoro (`https://senkyoro.co.jp/`, 7 nearby
-  sights), Dec 6 Oregon team party at Pedro's near Jiyugaoka Station (Meguro
+  friends (day now booked), Dec 2 Hakone onsen with mom and dad at Senkyoro
+  (`https://senkyoro.co.jp/`, 7 nearby sights), Dec 3 back from Hakone and
+  dinner at Switch with Mohan (red wine icon, same as Nov 30), Dec 6 Oregon
+  team party at Pedro's near Jiyugaoka Station (Meguro
   City, time TBC, no samba), George returns Dec 7 (AS124 + AS488), Harue
   returns Dec 13 (same flights). Nov 28, Dec 4, Dec 5 and Dec 8 - Dec 12
   intentionally open.
@@ -108,5 +109,5 @@ update `--loc-*` colors in `css/style.css`, deploy.
 - Map is a placeholder SVG (`images/japan-map.svg`).
 - Location accent colors: tokyo, kyoto, osaka, transit (template) + hakone.
 - All UI bilingual EN/JA with the toggle in the top-right corner.
-- 61 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
+- 63 tests green; mutation-checked (removing `leg.event` from `hasConcrete`
   fails tests 51, 53, 56; breaking `hasConcrete` or `labelDate` fails 44/47).
