@@ -137,19 +137,26 @@ var TRIP = {
       location: { en: "Tokyo", ja: "東京" },
       date: "Dec 1",
       day: { en: "Tuesday", ja: "火曜日" },
-      title: { en: "Evening samba and Harue's dinner with friends", ja: "夕方のサンバとHarueの友人との夕食" },
+      title: { en: "Harajuku with Yulia, evening samba, Harue's dinner with friends", ja: "原宿でYuliaと、夕方サンバ、Harueは友人と夕食" },
       flight: null,
-      event: {
-        en: "8:00 PM - 10:00 PM samba session at Studio Scout, near Kaminakazato Station.",
-        ja: "20:00 - 22:00 上中里駅近くのスタジオスカウトでサンバ。",
-        website: "http://www.studio-scout.com/",
-        mapQuery: "スタジオスカウト, 東京都北区西ケ原1-29-7",
-        icon: "drum"
-      },
+      events: [
+        {
+          en: "10:30 AM - Meet Yulia Antonova in Harajuku.",
+          ja: "10:30 - 原宿でYulia Antonovaと待ち合わせ。",
+          mapUrl: "https://maps.app.goo.gl/BwQ62NRhK98aJgDKA"
+        },
+        {
+          en: "8:00 PM - 10:00 PM samba session at Studio Scout, near Kaminakazato Station.",
+          ja: "20:00 - 22:00 上中里駅近くのスタジオスカウトでサンバ。",
+          website: "http://www.studio-scout.com/",
+          mapQuery: "スタジオスカウト, 東京都北区西ケ原1-29-7",
+          icon: "drum"
+        }
+      ],
       accommodation: null,
       notes: {
-        en: "Harue has dinner with friends. The rest of the day stays open.",
-        ja: "Harueは友人と夕食。ほかの時間は空きです。"
+        en: "10:30 AM meet Yulia Antonova in Harajuku. Harue has dinner with friends. The rest of the day stays open.",
+        ja: "10:30に原宿でYulia Antonovaと待ち合わせ。Harueは友人と夕食。ほかの時間は空きです。"
       },
       thingsToSee: []
     },

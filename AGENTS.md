@@ -93,8 +93,10 @@ update `--loc-*` colors in `css/style.css`, deploy.
   onsen), Nov 29 samba 10:00 AM - 2:00 PM at Studio Scout near Kaminakazato
   (`http://www.studio-scout.com/`) then family dinner and possible onsen in
   Koshigaya, Nov 30 Harue at the cancer center (George
-  free), Dec 1 samba 8:00 PM - 10:00 PM at Studio Scout + Harue dinner with
-  friends (day now booked), Dec 2 Hakone onsen with mom and dad at Senkyoro
+  free), Dec 1 meet Yulia Antonova in Harajuku at 10:30 AM
+  (`https://maps.app.goo.gl/BwQ62NRhK98aJgDKA`) + samba 8:00 PM - 10:00 PM at
+  Studio Scout + Harue dinner with friends (day now booked), Dec 2 Hakone
+  onsen with mom and dad at Senkyoro
   (`https://senkyoro.co.jp/`, 7 nearby sights), Dec 3 back from Hakone and
   dinner at Switch with Mohan (red wine icon, same as Nov 30), Dec 6 Oregon
   team party at Pedro's near Jiyugaoka Station (Meguro

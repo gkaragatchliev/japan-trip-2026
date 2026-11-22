@@ -921,7 +921,19 @@ test("Dec 1 evening samba at Studio Scout around Harue's dinner", () => {
   assert.strictEqual(card.querySelector(".tc-day").textContent, "Tuesday", "Dec 1 is a Tuesday");
   assert.strictEqual(card.querySelector(".tc-day-badge").textContent, "Day 7", "seventh trip day");
   assert.ok(card.querySelector(".tc-title").textContent.includes("samba"), "samba in title");
-  const ev = card.querySelector(".tc-event");
+
+  const meeting = Array.from(card.querySelectorAll(".tc-event"))
+    .find((e) => e.textContent.includes("Yulia"));
+  assert.ok(meeting, "Yulia meeting rendered");
+  assert.ok(meeting.textContent.includes("10:30 AM"), "meeting time shown");
+  assert.ok(meeting.textContent.includes("Harajuku"), "meeting place named");
+  const meetingMap = meeting.querySelector("a.tc-map");
+  assert.ok(meetingMap, "meeting map link rendered");
+  assert.strictEqual(meetingMap.getAttribute("href"),
+    "https://maps.app.goo.gl/BwQ62NRhK98aJgDKA", "meeting uses the direct map link");
+
+  const ev = Array.from(card.querySelectorAll(".tc-event"))
+    .find((e) => e.textContent.includes("Studio Scout"));
   assert.ok(ev, "samba event rendered");
   assert.ok(ev.textContent.includes("8:00 PM"), "start time shown");
   assert.ok(ev.textContent.includes("10:00 PM"), "end time shown");
@@ -934,6 +946,7 @@ test("Dec 1 evening samba at Studio Scout around Harue's dinner", () => {
   assert.ok(map, "studio map link rendered");
   assert.ok(map.getAttribute("href").indexOf("google.com/maps") !== -1, "map points at Google Maps");
   const notes = card.querySelector(".tc-notes").textContent;
+  assert.ok(notes.includes("Yulia"), "Yulia meeting named");
   assert.ok(notes.includes("Harue"), "Harue's dinner named");
   assert.ok(notes.includes("friends"), "dinner company named");
 
@@ -947,7 +960,8 @@ test("Dec 1 evening samba at Studio Scout around Harue's dinner", () => {
   assert.ok(opt.textContent.includes("[Booked]"), "Dec 1 tagged Booked");
 
   w.__trip.setLang("ja");
-  const jaEvent = cardFor(w, "Dec 1").querySelector(".tc-event");
+  const jaEvent = Array.from(cardFor(w, "Dec 1").querySelectorAll(".tc-event"))
+    .find((e) => e.textContent.includes("スタジオスカウト"));
   assert.ok(jaEvent.textContent.includes("20:00") && jaEvent.textContent.includes("22:00"),
     "JA times in 24-hour clock");
 });

@@ -250,21 +250,23 @@
       html += '</div>';
     }
 
-    if (leg.event) {
-      var evIcon = iconSvg(leg.event.icon);
+    var events = leg.events || (leg.event ? [leg.event] : []);
+    events.forEach(function (ev) {
+      var evIcon = iconSvg(ev.icon);
+      var evMap = ev.mapUrl || (ev.mapQuery ? mapsLink(ev.mapQuery) : "");
       html += '<div class="tc-section tc-event">';
       html += '<span class="tc-label">' + escapeHtml(t(STR.event)) + '</span>';
-      html += '<span class="tc-event-detail">' + escapeHtml(t(leg.event)) + '</span>';
-      if (leg.event.website) {
-        html += ' <a class="tc-site" href="' + escapeHtml(leg.event.website) + '" target="_blank" rel="noopener">' +
+      html += '<span class="tc-event-detail">' + escapeHtml(t(ev)) + '</span>';
+      if (ev.website) {
+        html += ' <a class="tc-site" href="' + escapeHtml(ev.website) + '" target="_blank" rel="noopener">' +
           evIcon + escapeHtml(t(STR.website)) + '</a>';
       }
-      if (leg.event.mapQuery) {
-        html += ' <a class="tc-map" href="' + mapsLink(leg.event.mapQuery) + '" target="_blank" rel="noopener">' +
-          (leg.event.website ? "" : evIcon) + escapeHtml(t(STR.map)) + '</a>';
+      if (evMap) {
+        html += ' <a class="tc-map" href="' + escapeHtml(evMap) + '" target="_blank" rel="noopener">' +
+          (ev.website ? "" : evIcon) + escapeHtml(t(STR.map)) + '</a>';
       }
       html += '</div>';
-    }
+    });
 
     if (leg.meals) {
       leg.meals.forEach(function (meal) {
@@ -597,7 +599,7 @@
         var leg = entry.leg;
         var hasConcrete = leg.flight || leg.flights || leg.drive || leg.accommodation ||
           (leg.thingsToSee && leg.thingsToSee.length > 0) || leg.pullquote || leg.event ||
-          (leg.meals && leg.meals.length > 0);
+          (leg.events && leg.events.length > 0) || (leg.meals && leg.meals.length > 0);
         entry.desc = t(leg.title);
         if (leg.flight || leg.flights) entry.status = "travel";
         else if (hasConcrete) entry.status = "booked";
